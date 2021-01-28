@@ -1,0 +1,22 @@
+{% extends 'base.html' %} {% block content %}
+<div class="row justify-content-center">
+  <form class="searchForm" action="result" method="get">
+    <div class="container">
+      <div class="row height d-flex justify-content-center align-items-center">
+        <div class="col-md-8">
+          <div class="search">
+            <i class="fa fa-search"></i>
+            <input
+              type="text"
+              name="query"
+              class="form-control"
+              placeholder="Have a question? Ask Now"
+            />
+            <button class="btn btn-primary">Search</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+{% endblock %}

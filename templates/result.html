@@ -1,0 +1,37 @@
+{% extends 'base.html' %} {% block content %}
+<div class="row justify-content-center pt-4">
+  <form class="searchForm" action="result" method="get">
+    <div class="container">
+      <div class="row d-flex justify-content-center align-items-center">
+        <div class="col-md-8">
+          <div class="search">
+            <i class="fa fa-search"></i>
+            <input
+              type="text"
+              class="form-control"
+              name="query"
+              value="{{query|join(' ')}}"
+            />
+            <button class="btn btn-primary">Search</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+<br />
+<br />
+<div class="resultaat">
+  {% for result in context %} {% for d in result %}
+    <div class="row justify-content-center">
+      <div class="col-md-8">
+        <h3><a href="{{ d.link }}" target="blank">{{ d.titel }}</a></h3>
+        <small>Cosinus-similariteit: {{ d.cosinus }}</small>
+        <p>{{ d.preview }}</p>
+        <hr />
+        <br />
+      </div>
+    </div>
+  {% endfor %} {% endfor %}
+</div>
+{% endblock %}
